@@ -1,0 +1,57 @@
+<app-add-asset *ngIf="showAddAsset" (onAddAsset)="addAsset($event)"></app-add-asset>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Serial #</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Assignee Email</th>
+                    <th scope="col">Date Assignment</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let asset of assets">
+                        <th scope="row">
+                            {{ asset.id }}
+                        </th>
+                        <td>
+                            {{ asset.name }}
+                        </td>
+                        <td>
+                            {{ asset.description }}
+                        </td>
+                        <td>
+                            {{ asset['assignee-email'] }}
+                        </td>
+                        <td>
+                            {{ asset['date-assignment'] }}
+                        </td>
+                        <td>
+                            {{ asset.active ? 'Active' : 'Inactive' }}
+                        </td>
+                        <td>
+                            <!-- <app-button text="{{ asset.active ? 'Disable' : 'Activate' }}" (btnClick)="enableDisableAsset(asset)"></app-button> -->
+                            <fa-icon [ngStyle]="{'color': asset.active ? 'green' : 'red'}" [icon]="asset.active ? faToggleOn : faToggleOff" (click)="enableDisableAsset(asset)"></fa-icon>
+                            <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTrash" (dblclick)="deleteAsset(asset)"></fa-icon>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- 
+    "serial-number": string,
+    "name": string,
+    "description": string,
+    "assignee-email": string,
+    "type": string,
+    "date-assignment": string,
+    "date-registered": string,
+    "active": boolean
+-->
