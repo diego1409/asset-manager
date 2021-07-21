@@ -22,6 +22,12 @@ export class AssetService {
     return this.http.get<Asset[]>(this.apiURL);
   }
 
+  getAsset(id: string): Observable<Asset> {
+    const url = `${this.apiURL}/${id}`;
+    console.log(url);
+    return this.http.get<Asset>(url);
+  }
+
   updateAsset(asset: Asset): Observable<Asset> {
     const url = `${this.apiURL}/${asset.id}`;
     return this.http.put<Asset>(url, asset, httpOptions);

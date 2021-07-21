@@ -23,7 +23,12 @@ export class HeaderComponent implements OnInit {
     this.uiService.toggleAddAsset();
   }
 
-  hasRoute(route: String) {
-    return this.router.url === route;
+  hasRoute(route: string) {
+    if (route === '/') {
+      return this.router.url === route;
+    }
+    else {
+      return this.router.url.includes(route);
+    }
   }
 }

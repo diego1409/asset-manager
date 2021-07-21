@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container-fluid my-3">
     <div class="row">
-        <div class="col-10">
-            <h1>Asset Manager</h1>
+        <div class="col-3">
+            <h1 *ngIf="hasRoute('/')">Asset Manager</h1>
+            <h1 *ngIf="hasRoute('/edit')">Edit Asset</h1>
         </div>
-        <div class="col-2 mt-2">
+        <div class="col mt-2">
             <app-button *ngIf="hasRoute('/')" text="{{ showAddAsset ? 'Close' : 'Add' }}" (btnClick)="onClick()"></app-button>
         </div>
     </div>

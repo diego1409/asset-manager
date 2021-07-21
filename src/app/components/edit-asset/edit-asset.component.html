@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit()" class="mx-5 mt-3">
+    <div class="mb-3">
+        <label for="id" class="form-label">Asset ID</label>
+        <input type="text" [(ngModel)]="asset.id" class="form-control" id="id" name="id" placeholder="Insert your Asset ID" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Asset Name</label>
+        <input type="text" [(ngModel)]="asset.name" class="form-control" id="name" name="name" placeholder="Insert a name">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Asset Description</label>
+        <textarea class="form-control" [(ngModel)]="asset.description" id="description" name="description" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Asignee email</label>
+        <input type="email" [(ngModel)]="asset['assignee-email']" class="form-control" id="email" name="email" placeholder="Insert an email">
+    </div>
+    <div class="mb-3">
+        <label for="assetType" class="form-label">Asset Type</label>
+        <br/>
+        <select class="form-select" [(ngModel)]="asset.type" id="type" name="type" aria-label="Asset Type">
+            <option>Select an asset type</option>
+            <option value="Accessory">Accessory</option>
+            <option value="Adapter">Adapter</option>
+            <option value="Computer">Computer</option>
+            <option value="Monitor">Monitor</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="dateAssignment" class="form-label">Date Assignment</label>
+        <input type="text" class="form-control" [(ngModel)]="asset['date-assignment']" id="dateAssignment" name="dateAssignment" placeholder="YYYY-DD-MM">
+    </div>
+    <div class="mb-3">
+        <label for="dateRegistered" class="form-label">Date Registered</label>
+        <input type="text" class="form-control" [(ngModel)]="asset['date-registered']" id="dateRegistered" name="dateRegistered" placeholder="YYYY-DD-MM">
+    </div>
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="asset.active" id="active" name="active">
+            <label class="form-check-label" for="active">
+                Active
+            </label>
+        </div>
+    </div>
+    <input type="submit" value="Save Asset" class="btn btn-primary" />
+</form>

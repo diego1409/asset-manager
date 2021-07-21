@@ -2,6 +2,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
+            <p *ngFor="let alert of alerts">
+                <ngb-alert [type]="alert.type" (closed)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -37,7 +44,8 @@
                         <td>
                             <!-- <app-button text="{{ asset.active ? 'Disable' : 'Activate' }}" (btnClick)="enableDisableAsset(asset)"></app-button> -->
                             <fa-icon [ngStyle]="{'color': asset.active ? 'green' : 'red'}" [icon]="asset.active ? faToggleOn : faToggleOff" (click)="enableDisableAsset(asset)"></fa-icon>
-                            <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTrash" (dblclick)="deleteAsset(asset)"></fa-icon>
+                            <fa-icon [ngStyle]="{'color': 'black'}" [icon]="faEdit" (click)="editAsset(asset.id)"></fa-icon>
+                            <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTrash" (click)="deleteWarning(asset)" (dblclick)="deleteAsset(asset)"></fa-icon>
                         </td>
                     </tr>
                 </tbody>
