@@ -2,7 +2,7 @@ import { Asset } from './Asset';
 
 export const ASSETS: Asset[] = [
     {
-        "serial-number": "123abc",
+        "id": "123abc",
         "name": "Macbook Pro",
         "description": "Macbook Pro Retina display RAM16GB SDD1G",
         "assignee-email": "happyman@gmail.com",
@@ -12,7 +12,7 @@ export const ASSETS: Asset[] = [
         "active": true
     },
     {
-        "serial-number": "456def",
+        "id": "456def",
         "name": "Monitor AOC",
         "description": "AOC Monitor 24 inch",
         "assignee-email": "happyman@gmail.com",
@@ -22,7 +22,7 @@ export const ASSETS: Asset[] = [
         "active": false
     },
     {
-        "serial-number": "789ghi",
+        "id": "789ghi",
         "name": "USB-C Adapter",
         "description": "USB-C Adapter",
         "assignee-email": "happyman@gmail.com",
